@@ -12,5 +12,5 @@ int main()
 
 void towerOfHanoi(int noOfDisks)
 {
-
+    int a;
 }
