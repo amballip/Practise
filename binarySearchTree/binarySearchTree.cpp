@@ -7,8 +7,8 @@ struct BSTree
     BSTree* right;
     BSTree* left;
 
-    BSTree()
-    {
+    BSTree() 
+    {                                                                      
         right = nullptr;
         left= nullptr;
     }
@@ -18,16 +18,54 @@ struct BSTree
 class BSTreeFuction
 {
     public:
-    BSTree* root;
+    BSTree* root = new BSTree();
 
-    void Insert(int value)
+    void InsertIterate(BSTree* InputNode,int InsertValue)
     {
+        if(InputNode->left == nullptr && InputNode->value < InsertValue)
+        {
+            BSTree temp;
+            temp.value = InsertValue;
+            InputNode->left = &temp;
+            return;
+        }
+        else if(InputNode->value > InsertValue)
+        {
+            InsertIterate(InputNode->right,InsertValue);
+            return;
+        }
+         if(InputNode->right == nullptr && InputNode->value > InsertValue)
+        {
+            BSTree temp;
+            temp.value = InsertValue;
+            InputNode->right = &temp;
+            return;
+        }
+        else if(InputNode->value < InsertValue)
+        {
+            InsertIterate(InputNode->left,InsertValue);
+            return;
+        }
+    }
 
+    void Insert(int InsertValue)
+    {
+        if(root == nullptr )
+        {
+            BSTree temp;
+            temp.value = InsertValue;
+            *root = temp;
+        }
+        else
+        {
+            InsertIterate(root,InsertValue);
+        }
+        
     }
 
     BSTreeFuction()
     {
-        root = nullptr;
+        root = nullptr;                                       
     }
 
     private:
@@ -41,6 +79,7 @@ int main()
     do
     {
         cout<<"Enter option to proceed. 0 to exit"<<endl;
+        cout<<"1. Insert node"<<endl;
         cin>>option;
         int value;
 
