@@ -22,24 +22,46 @@ class BSTreeFuction
 
     void InsertIterate(BSTree* InputNode,int InsertValue)
     {
-        if(InputNode->left == nullptr && InputNode->value < InsertValue)
+        if(InputNode->left == nullptr && InsertValue < InputNode->value )
         {
-            BSTree temp;
-            temp.value = InsertValue;
-            InputNode->left = &temp;
-            return;
+           if(InputNode->value== InsertValue)
+            {
+                cout<<"Value is repeated"<<endl;
+                return;
+            }
+            else
+            {
+                BSTree* temp = new BSTree() ;
+                temp->value = InsertValue;
+                InputNode->left = temp;
+                cout<<"Node created"<<endl;
+                return;
+            }
+            
+             
         }
         else if(InputNode->value > InsertValue)
         {
             InsertIterate(InputNode->right,InsertValue);
             return;
         }
-         if(InputNode->right == nullptr && InputNode->value > InsertValue)
+         if(InputNode->right == nullptr && InsertValue > InputNode->value )
         {
-            BSTree temp;
-            temp.value = InsertValue;
-            InputNode->right = &temp;
-            return;
+            if(InputNode->value== InsertValue)
+            {
+                cout<<"Value is repeated"<<endl;
+                return;
+            }
+            else
+            {
+                BSTree* temp = new BSTree();
+                temp->value = InsertValue;
+                InputNode->right = temp;
+                cout<<"Node created"<<endl;
+                return;
+            }
+            
+            
         }
         else if(InputNode->value < InsertValue)
         {
@@ -52,15 +74,32 @@ class BSTreeFuction
     {
         if(root == nullptr )
         {
-            BSTree temp;
-            temp.value = InsertValue;
-            *root = temp;
+            BSTree* temp = new BSTree();
+            temp->value = InsertValue;
+            root = temp;
+            cout<<"Root node created"<<endl;    
+            return;
         }
         else
         {
-            InsertIterate(root,InsertValue);
+            if(root->value== InsertValue)
+            {
+                cout<<"Value is repeated"<<endl;
+                return;
+            }
+            else
+            {
+                InsertIterate(root,InsertValue);
+            }
+            
+            
         }
         
+    }
+
+    void PrintTree()
+    {
+
     }
 
     BSTreeFuction()
@@ -80,6 +119,8 @@ int main()
     {
         cout<<"Enter option to proceed. 0 to exit"<<endl;
         cout<<"1. Insert node"<<endl;
+        cout<<"2. Print Tree"<<endl<<endl;
+
         cin>>option;
         int value;
 
@@ -89,9 +130,15 @@ int main()
             break;
 
             case 1:
+            cout<<endl;
             cout<<"Insert operation"<<endl;
             cout<<"Enter value"<<endl;
+            cin>>value;
             BST.Insert(value);
+            break;
+
+            case 2:
+            BST.PrintTree();
             break;
 
             default:
