@@ -1,4 +1,5 @@
 #include<iostream>
+#include<fstream>
 using namespace std;
 
 struct BSTree
@@ -24,7 +25,7 @@ class BSTreeFuction
     {
         if(InputNode->left == nullptr && InsertValue < InputNode->value )
         {
-           if(InputNode->value== InsertValue)
+           if(InputNode->value == InsertValue)
             {
                 cout<<"Value is repeated"<<endl;
                 return;
@@ -47,7 +48,7 @@ class BSTreeFuction
         }
          if(InputNode->right == nullptr && InsertValue > InputNode->value )
         {
-            if(InputNode->value== InsertValue)
+            if(InputNode->value == InsertValue)
             {
                 cout<<"Value is repeated"<<endl;
                 return;
@@ -110,11 +111,30 @@ class BSTreeFuction
     private:
 
 };
-int main()
+int main(int argc, char* argv[])
 {
-    int option;
-    BSTreeFuction BST;
     
+    BSTreeFuction BST;
+
+
+    ifstream fileOpen;
+    fileOpen.open(argv[1]);
+
+    int* a = new int[10];
+    for(int i = 0;i<10;i++)
+    {
+        fileOpen>>a[i];
+        cout<<a[i]<<endl;
+    }
+
+    for(int i = 0;i<10;i++)
+    {
+        BST.Insert(a[i]);
+    }
+
+/*
+    
+    int option;
     do
     {
         cout<<"Enter option to proceed. 0 to exit"<<endl;
@@ -145,7 +165,8 @@ int main()
             cout<<"Invalid option";
         }
     } while (option!=0);
-
+    
+*/
     return 0;   
 }
 
