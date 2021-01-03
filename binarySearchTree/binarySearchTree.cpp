@@ -10,8 +10,9 @@ struct BSTree
 
     BSTree() 
     {                                                                      
-        right = nullptr;
-        left= nullptr;
+        right = 0;
+        left= 0;
+	value=0;
     }
 };
 
@@ -23,7 +24,7 @@ class BSTreeFuction
 
     void InsertIterate(BSTree* InputNode,int InsertValue)
     {
-        if(InputNode->left == nullptr && InsertValue < InputNode->value )
+        if(InputNode->left == 0 && InsertValue < InputNode->value )
         {
            if(InputNode->value == InsertValue)
             {
@@ -38,15 +39,16 @@ class BSTreeFuction
                 cout<<"Node created"<<endl;
                 return;
             }
-            
-             
+                
         }
-        else if(InputNode->value > InsertValue)
+        else if(InsertValue < InputNode->value )
         {
-            InsertIterate(InputNode->right,InsertValue);
+            InsertIterate(InputNode->left, InsertValue);
             return;
         }
-         if(InputNode->right == nullptr && InsertValue > InputNode->value )
+
+
+         if(InputNode->right == 0 && InsertValue > InputNode->value )
         {
             if(InputNode->value == InsertValue)
             {
@@ -64,16 +66,16 @@ class BSTreeFuction
             
             
         }
-        else if(InputNode->value < InsertValue)
+        else if(InsertValue > InputNode->value )
         {
-            InsertIterate(InputNode->left,InsertValue);
+            InsertIterate(InputNode->right, InsertValue);
             return;
         }
     }
 
     void Insert(int InsertValue)
     {
-        if(root == nullptr )
+        if(root == 0 )
         {
             BSTree* temp = new BSTree();
             temp->value = InsertValue;
@@ -120,14 +122,18 @@ int main(int argc, char* argv[])
     ifstream fileOpen;
     fileOpen.open(argv[1]);
 
-    int* a = new int[10];
-    for(int i = 0;i<10;i++)
-    {
-        fileOpen>>a[i];
-        cout<<a[i]<<endl;
-    }
+    int* a = new int[20];
+ 
+    for(int i =0;i<20;i++)
+	{
 
-    for(int i = 0;i<10;i++)
+		fileOpen>>a[i];
+        	cout<<a[i]<<endl;
+	}
+
+
+
+    for(int i = 0;i<20;i++)
     {
         BST.Insert(a[i]);
     }
