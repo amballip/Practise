@@ -4,43 +4,43 @@
 using namespace std;
 
 
-int random1()
+int random1() //Generates random numbers between 65 and 90
 {
-	 int a = rand()%90;
-	 if(a>=65)
-		 return a;
-	 else
-		 return random1();
-
+	return rand()%(90-65)+65;
 
 }
 
-string generateString()
+string generateString() // Genetates random string of capital characters.
 {
-	string s="";                   
-	s[0]=random1();
-	s[1]=random1();
-	s[2]=random1();
-	s[3]=random1();
+	string s="";
+	s.reserve(5);	
+	s.push_back(random1());
+	s.push_back(random1());
+	s.push_back(random1());
+	s.push_back(random1());
 
-	cout<<"adress of S is "<<(void*)********s<<endl;
-	cout<<"adress of S[0] is "<<(void*)&s[0]<<endl;
+	cout<<s<<endl;
 	return s;
 
 }
 
 
+void hashGen(string s)
+{
 
+	
+
+
+}
 
 
 int main()
 {
 
-	for(int i=0;i<10;i++)
+	for(int i=0;i<100;i++)
 	{
 		string s = generateString();
-		cout<<s<<endl;
+		hashGen(s);
 	}
-
 
 }
