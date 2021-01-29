@@ -28,7 +28,7 @@ string generateString() // Genetates random string of capital characters.
 void hashGen(string s)
 {
 
-	
+	int key;	
 
 
 }
