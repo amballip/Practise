@@ -2,7 +2,7 @@
 linked* l = new linked[keySize];
 
 
-int hashKey(string s)
+int hashKey(std::string s)
 {
 	int key=0;
 	for(int i =0;i<s.length();i++)
@@ -17,7 +17,7 @@ int hashKey(string s)
 }
 
 
-void hashGen(string s)
+void hashGen(std::string s)
 {
 
 	int key = hashKey(s);
@@ -31,19 +31,19 @@ void printHash()
 		object* o1 = l[i].head;
 		if(o1 ==nullptr)
 		{
-			cout<<"No elements in the row"<<endl;
+			std::cout<<"No elements in the row"<<std::endl;
 		}
 		else
 		{
 			while(o1->next!=nullptr)
 			{
-				cout<<o1->value<<" ";
+				std::cout<<o1->value<<" ";
 				o1=o1->next;
 
 			}
 			
 		}
-		cout<<endl;
+		std::cout<<std::endl;
 
 	}
 }

@@ -1,7 +1,7 @@
 #include "headers.h"
 
 
-void linked::add(string s)
+void linked::add(std::string s)
 {
     if (head == nullptr)
     {

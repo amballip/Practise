@@ -4,17 +4,16 @@
 #include<string>
 #include<cstdlib>
 
-using namespace std;
 
 
-void hashGen(string s);
+void hashGen(std::string s);
 void printHash();
 extern int keySize;
 
 
 struct object
 {
-	string value;
+	std::string value;
 	object* next;
 
 	object()
@@ -32,7 +31,7 @@ class linked
 		
 	object* head;
 
-	void add(string s);	
+	void add(std::string s);	
 	linked();
 		
 

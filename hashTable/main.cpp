@@ -1,6 +1,5 @@
 #include "headers.h"
 
-using namespace std;
 
 int keySize=10;
 
@@ -10,9 +9,9 @@ int random1() //Generates random numbers between 65 and 90
 
 }
 
-string generateString() // Genetates random string of capital characters.
+std::string generateString() // Genetates random string of capital characters.
 {
-	string s="";
+	std::string s="";
 	s.reserve(5);	
 	s.push_back(random1());
 	s.push_back(random1());
@@ -30,13 +29,13 @@ int main()
 	srand(unsigned(time(0)));
 	for(int i=0;i<100;i++)
 	{
-		string s = generateString();
+		std::string s = generateString();
 		hashGen(s);
 	}
 
-	cout<<"Random strings genetated and stored in hash table"<<endl;
+	std::cout<<"Random strings genetated and stored in hash table"<<std::endl;
 	
-	cout<<endl;
+	std::cout<<std::endl;
 
 	printHash();
 
