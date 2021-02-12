@@ -10,9 +10,9 @@ struct BSTree
 
     BSTree() 
     {                                                                      
-        right = 0;
-        left= 0;
-	value=0;
+        right = nullptr;
+        left= nullptr;
+	value= 0;
     }
 };
 
@@ -24,7 +24,7 @@ class BSTreeFuction
 
     void InsertIterate(BSTree* InputNode,int InsertValue)
     {
-        if(InputNode->left == 0 && InsertValue < InputNode->value )
+        if(InputNode->left == nullptr && InsertValue < InputNode->value )
         {
            if(InputNode->value == InsertValue)
             {
@@ -48,7 +48,7 @@ class BSTreeFuction
         }
 
 
-         if(InputNode->right == 0 && InsertValue > InputNode->value )
+         if(InputNode->right == nullptr && InsertValue > InputNode->value )
         {
             if(InputNode->value == InsertValue)
             {
@@ -117,6 +117,18 @@ int main(int argc, char* argv[])
 {
     
     BSTreeFuction BST;
+
+	ofstream myfile;
+	myfile.open(argv[1]);
+
+	for(int i =0;i<20;i++)
+	{
+		myfile<<rand();
+		myfile<<" ";
+		
+	}
+
+	myfile.close();
 
 
     ifstream fileOpen;
